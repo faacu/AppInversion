@@ -1,0 +1,32 @@
+StockBriefCase:
+- portafolio donde vos ingreses las acciones que compraste y busque el precio que tiene y te diga 
+el total de tu cartera(crear una base de datos para guardar todas las acciones). //
+- graficos donde puedas ver:
+	-los tipos de diversificacion de tu cartera  //
+	-los tipos de acciones que estan en tu portafolio //
+- aplicar scrapper web (seguir con el metodo scrapper y despues en actualizar comparar la lista de simbolos con los de la base de datos y ahi asignar el precio ya que tienen el mismo numero de orden en el list)
+- seccion donde puedas buscar acciones y te aparezca una lista con su precio, simbolo, bolsa: (para simplificar usar un web browser)
+	-buscar por precio
+	-bolsa
+- wishlist //
+- dividendos (formulario donde busque las acciones que tenemos y saque el monto de pago por dividendo y el dia,sume eso para dar un total de ganancias en dividendos)
+- multicuentas
+
+Cambios:
+sacar espacios en blanco de datagridview
+cambiar los int por long si las cuentas con cantidades altas dan error
+debuguear estadisticas con los distintos tipos de acciones
+columna en datagridview para ver el procentaje de subida o bajada de cada accion
+buscar cotizacion efs y materias primas //
+arreglar scrapper nyse y nasdaq 
+ver porque agrega lineas demas en wishlist
+revisar serializacion portafolio //
+agregar opcion criptomonedas al combobox accion //
+redondear porcentaje en portafolio //
+arreglar datagrid wishlist
+
+Datos:
+cantidad de acciones: 100 millones maximo
+dividendos: https://www.nasdaq.com/market-activity/dividends
+simbolos://a [@href] con un for de dos en dos
+ganancia y dia de pago <strong> (ver como hacer la busqueda)
