@@ -118,10 +118,10 @@ namespace StockBriefCase
             //agregar datos anteriores al datagridview
             for(int n = 0; n < nombres.Count;n++)
             {
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[n].Cells[0].Value = nombres[n];
-                dataGridView1.Rows[n].Cells[1].Value = simbolos[n];
-                dataGridView1.Rows[n].Cells[2].Value = precio[n];
+                int f = dataGridView1.Rows.Add();
+                dataGridView1.Rows[f].Cells[0].Value = nombres[n];
+                dataGridView1.Rows[f].Cells[1].Value = simbolos[n];
+                dataGridView1.Rows[f].Cells[2].Value = precio[n];
             }
             richTextBoxNotas.Text = linea; //agrega las notas escritas antes de cerrar y guardar
             if (nyseNombres.Any() == false)
@@ -410,189 +410,187 @@ namespace StockBriefCase
             }
             nysePrecioMalo.Clear();
 
-            if (nyseNombres.Count == 0 || nyseNombres.Any() == false)
+            nyseNombres.Clear();
+            foreach (var item in doc.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//desde 101 empiezan los nombres hasta 250- 1° pagina
             {
-                foreach (var item in doc.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//desde 101 empiezan los nombres hasta 250- 1° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++) //modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc2.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//2° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc3.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//3° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++) //modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc4.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//4° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)// modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc5.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//5° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc6.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//6° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++) //modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc7.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//7° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc8.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//8° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc9.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//9° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc10.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//10° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc11.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//11° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc12.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//12° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc13.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//13° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc14.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//14° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc15.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//15° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc16.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//16° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc17.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//17° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc18.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//18° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc19.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//19° pagina
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
-                foreach (var item in doc20.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//20° pagina - hasta 210
-                {
-                    nyseNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nyseNombres.Add(nyseNombresMalo[d]);
-                }
-                nyseNombresMalo.Clear();
+                nyseNombresMalo.Add(item.InnerText);
             }
+            for (int d = 99; d < 249; d++) //modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc2.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//2° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc3.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//3° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++) //modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc4.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//4° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)// modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc5.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//5° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc6.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//6° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++) //modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc7.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//7° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc8.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//8° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc9.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//9° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc10.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//10° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc11.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//11° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc12.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//12° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc13.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//13° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc14.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//14° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc15.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//15° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc16.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//16° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc17.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//17° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc18.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//18° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc19.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//19° pagina
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
+            foreach (var item in doc20.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//20° pagina - hasta 210
+            {
+                nyseNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nyseNombres.Add(nyseNombresMalo[d]);
+            }
+            nyseNombresMalo.Clear();
             //-----------------------------------------------------------------------------------------------------------
             //Nasdaq 
             if (nasdaqPrecio.Any() == true)
@@ -840,242 +838,238 @@ namespace StockBriefCase
             }
             nasdaqPrecioMalo.Clear();
 
-            if (nasdaqNombres.Any() == false)
+            nasdaqNombres.Clear();
+            foreach (var item in nas.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//desde 101 empiezan los nombres hasta 250- 1° pagina
             {
-                foreach (var item in nas.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//desde 101 empiezan los nombres hasta 250- 1° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas2.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//2° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas3.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//3° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas4.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//4° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas5.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//5° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas6.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//6° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas7.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//7° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas8.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//8° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas9.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//9° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas10.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//10° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas11.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//11° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas12.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//12° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas13.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//13° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas14.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//14° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas15.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//15° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas16.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//16° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas17.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//17° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas18.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//18° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas19.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//19° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas20.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//20° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas21.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//21° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas22.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//22° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 249; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas23.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//23° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 248; d++)//modificado
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
-                foreach (var item in nas24.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//24° pagina
-                {
-                    nasdaqNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 99; d < 225; d++)
-                {
-                    nasdaqNombres.Add(nasdaqNombresMalo[d]);
-                }
-                nasdaqNombresMalo.Clear();
+                nasdaqNombresMalo.Add(item.InnerText);
             }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas2.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//2° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas3.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//3° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas4.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//4° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas5.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//5° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas6.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//6° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas7.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//7° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas8.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//8° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas9.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//9° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas10.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//10° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas11.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//11° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas12.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//12° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas13.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//13° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas14.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//14° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas15.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//15° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas16.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//16° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas17.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//17° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas18.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//18° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas19.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//19° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas20.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//20° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas21.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//21° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas22.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//22° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 249; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas23.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//23° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 248; d++)//modificado
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
+            foreach (var item in nas24.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//24° pagina
+            {
+                nasdaqNombresMalo.Add(item.InnerText);
+            }
+            for (int d = 99; d < 225; d++)
+            {
+                nasdaqNombres.Add(nasdaqNombresMalo[d]);
+            }
+            nasdaqNombresMalo.Clear();
             //-----------------------------------------------------------------------------------------------------
             //ETFs
             if (etfPrecio.Any() == true)
             {
                 etfPrecio.Clear();
+                etfSimbolos.Clear();
             }
             HtmlAgilityPack.HtmlDocument docETF = web.Load("https://www.invertironline.com/mercado/cotizaciones/estados-unidos/etfs/todos");
             foreach (var item in docETF.DocumentNode.SelectNodes("//td[@class = 'right tar']"))
             {
                 etfPrecio.Add(item.InnerText);
             }
-            if (etfSimbolos.Any() == false)
+            foreach (var item in docETF.DocumentNode.SelectNodes("//b"))
             {
-                foreach (var item in docETF.DocumentNode.SelectNodes("//b"))
-                {
-                    etfSimbolos.Add(item.InnerText);
-                }
+                etfSimbolos.Add(item.InnerText);
             }
             //-------------------------------------------------------------------------------------------------------------------------------
             //Materias Primas
@@ -1093,17 +1087,17 @@ namespace StockBriefCase
             {
                 matPrecio.Add(matPrecioMalo[n]);
             }
-            if (matNombres.Any() == false)
+
+            matNombres.Clear();
+            foreach (var item in docMat.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//desde 101 empiezan los nombres hasta 250
             {
-                foreach (var item in docMat.DocumentNode.SelectNodes("//a [@class = 'lnk']"))//desde 101 empiezan los nombres hasta 250
-                {
-                    matNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 100; d < 112; d++)
-                {
-                    matNombres.Add(matNombresMalo[d]);
-                }
+                matNombresMalo.Add(item.InnerText);
             }
+            for (int d = 100; d < 112; d++)
+            {
+                matNombres.Add(matNombresMalo[d]);
+            }
+
             //-------------------------------------------------------------------------------------------------
             //Criptos
             if (criptoPrecio.Any() == true)
@@ -1122,17 +1116,17 @@ namespace StockBriefCase
                 string numero = usd.Substring(4);
                 criptoPrecio.Add(numero);
             }
-            if (criptoNombres.Any() == false)
+
+            criptoNombres.Clear();
+            foreach (var item in docCripto.DocumentNode.SelectNodes("//td [@class = 'title'] //span"))
             {
-                foreach (var item in docCripto.DocumentNode.SelectNodes("//td [@class = 'title'] //span"))
-                {
-                    criptoNombresMalo.Add(item.InnerText);
-                }
-                for (int d = 1; d < criptoNombresMalo.Count; d = d + 2)
-                {
-                    criptoNombres.Add(criptoNombresMalo[d]);
-                }
+                criptoNombresMalo.Add(item.InnerText);
             }
+            for (int d = 1; d < criptoNombresMalo.Count; d = d + 2)
+            {
+                criptoNombres.Add(criptoNombresMalo[d]);
+            }
+
         }
 
         private void buttonCerrar_Click(object sender, EventArgs e)
@@ -1147,7 +1141,10 @@ namespace StockBriefCase
                     nombres.Add(Convert.ToString(dataGridView1.Rows[n].Cells[0].Value));
                     simbolos.Add(Convert.ToString(dataGridView1.Rows[n].Cells[1].Value));
                     precio.Add(Convert.ToString(dataGridView1.Rows[n].Cells[2].Value));
-                    dataGridView1.Rows.Remove(dataGridView1.Rows[n]);
+                }
+                while(dataGridView1.Rows.Count != 0)
+                {
+                    dataGridView1.Rows.Remove(dataGridView1.Rows[0]);
                 }
             }
             linea = richTextBoxNotas.Text;
@@ -1245,17 +1242,6 @@ namespace StockBriefCase
                 }
             }
             eliminar.textBoxSimbolo.Clear();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            for(int n = 0;n < dataGridView1.Rows.Count;n++)
-            {
-                dataGridView1.Rows.Remove(dataGridView1.Rows[n]);
-            }
-            nombres.Clear();
-            simbolos.Clear();
-            precio.Clear();
         }
     }
 }

@@ -131,5 +131,13 @@ namespace StockBriefCase
             almacenW.Precios = lista.Precios;
             almacenW.Notas = lista.Notas;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dividendos dividendos = new Dividendos();
+            dividendos.Nombres = portafolio.nombre;
+            dividendos.Cantidad = portafolio.cantidad;
+            dividendos.Show();
+        }
     }
 }

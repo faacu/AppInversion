@@ -279,14 +279,14 @@ namespace StockBriefCase
                 }
             }
             //ARREGLAR
-            //for (int n = 0; n < accionesDataGridView.Rows.Count; n++)
-            //{
-            //    if (accionesDataGridView.Rows[n].Cells[2].Value != null && accionesDataGridView.Rows[n].Cells[3].Value != null)
-            //    {
-            //        nombre.Add(Convert.ToString(accionesDataGridView.Rows[n].Cells[2].Value));
-            //        cantidad.Add(Convert.ToInt32(accionesDataGridView.Rows[n].Cells[3].Value));
-            //    }
-            //}
+            for (int n = 0; n < accionesDataGridView.Rows.Count; n++)
+            {
+                if (accionesDataGridView.Rows[n].Cells[2].Value != null && accionesDataGridView.Rows[n].Cells[3].Value != null)
+                {
+                    nombre.Add(Convert.ToString(accionesDataGridView.Rows[n].Cells[2].Value));
+                    cantidad.Add(Convert.ToInt32(accionesDataGridView.Rows[n].Cells[3].Value));
+                }
+            }
             if (nyseNombres.Any() == false) //para agregar acciones con precio actual
             {
                 Scrapper();

@@ -308,6 +308,7 @@
             // 
             // accionesDataGridView
             // 
+            this.accionesDataGridView.AllowUserToAddRows = false;
             this.accionesDataGridView.AutoGenerateColumns = false;
             this.accionesDataGridView.BackgroundColor = System.Drawing.Color.PaleGreen;
             this.accionesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
