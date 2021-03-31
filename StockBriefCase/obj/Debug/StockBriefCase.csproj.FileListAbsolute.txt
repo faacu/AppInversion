@@ -38,3 +38,4 @@ C:\Users\Facu\Documents\AppInversion\StockBriefCase\obj\Debug\StockBriefCase.exe
 C:\Users\Facu\Documents\AppInversion\StockBriefCase\obj\Debug\StockBriefCase.pdb
 C:\Users\Facu\Documents\AppInversion\StockBriefCase\obj\Debug\StockBriefCase.Web.resources
 C:\Users\Facu\Documents\AppInversion\StockBriefCase\obj\Debug\StockBriefCase.WishList.resources
+C:\Users\Facu\Documents\AppInversion\StockBriefCase\obj\Debug\StockBriefCase.Dividendos.resources

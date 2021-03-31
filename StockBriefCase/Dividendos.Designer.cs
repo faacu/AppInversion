@@ -35,15 +35,21 @@ namespace StockBriefCase
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buttonActualizar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.labelMensual = new System.Windows.Forms.Label();
             this.labelHoy = new System.Windows.Forms.Label();
+            this.labelMensual = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
             this.accionesTableAdapter1 = new StockBriefCase.BDAccionesDataSetTableAdapters.AccionesTableAdapter();
             this.tableAdapterManager1 = new StockBriefCase.BDAccionesDataSetTableAdapters.TableAdapterManager();
             this.bdAccionesDataSet1 = new StockBriefCase.BDAccionesDataSet();
+            this.buttonSalir = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Compañia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dividendo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ganancia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdAccionesDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
@@ -52,7 +58,7 @@ namespace StockBriefCase
             this.chart1.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(12, 262);
+            this.chart1.Location = new System.Drawing.Point(12, 272);
             this.chart1.Name = "chart1";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
@@ -66,9 +72,10 @@ namespace StockBriefCase
             // 
             // buttonActualizar
             // 
-            this.buttonActualizar.Location = new System.Drawing.Point(296, 227);
+            this.buttonActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonActualizar.Location = new System.Drawing.Point(206, 225);
             this.buttonActualizar.Name = "buttonActualizar";
-            this.buttonActualizar.Size = new System.Drawing.Size(143, 29);
+            this.buttonActualizar.Size = new System.Drawing.Size(139, 30);
             this.buttonActualizar.TabIndex = 1;
             this.buttonActualizar.Text = "Actualizar";
             this.buttonActualizar.UseVisualStyleBackColor = true;
@@ -85,15 +92,15 @@ namespace StockBriefCase
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // labelTotal
+            // labelHoy
             // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(23, 20);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(90, 31);
-            this.labelTotal.TabIndex = 0;
-            this.labelTotal.Text = "Total: ";
+            this.labelHoy.AutoSize = true;
+            this.labelHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHoy.Location = new System.Drawing.Point(551, 20);
+            this.labelHoy.Name = "labelHoy";
+            this.labelHoy.Size = new System.Drawing.Size(78, 31);
+            this.labelHoy.TabIndex = 2;
+            this.labelHoy.Text = "Hoy: ";
             // 
             // labelMensual
             // 
@@ -105,15 +112,15 @@ namespace StockBriefCase
             this.labelMensual.TabIndex = 1;
             this.labelMensual.Text = "Mensual: ";
             // 
-            // labelHoy
+            // labelTotal
             // 
-            this.labelHoy.AutoSize = true;
-            this.labelHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHoy.Location = new System.Drawing.Point(551, 20);
-            this.labelHoy.Name = "labelHoy";
-            this.labelHoy.Size = new System.Drawing.Size(78, 31);
-            this.labelHoy.TabIndex = 2;
-            this.labelHoy.Text = "Hoy: ";
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.Location = new System.Drawing.Point(23, 20);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(90, 31);
+            this.labelTotal.TabIndex = 0;
+            this.labelTotal.Text = "Total: ";
             // 
             // accionesTableAdapter1
             // 
@@ -130,14 +137,56 @@ namespace StockBriefCase
             this.bdAccionesDataSet1.DataSetName = "BDAccionesDataSet";
             this.bdAccionesDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // buttonSalir
+            // 
+            this.buttonSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalir.Location = new System.Drawing.Point(41, 226);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(139, 29);
+            this.buttonSalir.TabIndex = 3;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.PaleGreen;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Compañia,
+            this.Dividendo,
+            this.Ganancia});
+            this.dataGridView1.Location = new System.Drawing.Point(443, 85);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(345, 181);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // Compañia
+            // 
+            this.Compañia.HeaderText = "Compañia";
+            this.Compañia.Name = "Compañia";
+            // 
+            // Dividendo
+            // 
+            this.Dividendo.HeaderText = "Dividendo";
+            this.Dividendo.Name = "Dividendo";
+            // 
+            // Ganancia
+            // 
+            this.Ganancia.HeaderText = "Ganancia";
+            this.Ganancia.Name = "Ganancia";
+            // 
             // Dividendos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonActualizar);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.buttonSalir);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.chart1);
             this.Name = "Dividendos";
             this.Text = "Dividendos";
@@ -146,6 +195,7 @@ namespace StockBriefCase
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdAccionesDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -161,5 +211,10 @@ namespace StockBriefCase
         private BDAccionesDataSetTableAdapters.AccionesTableAdapter accionesTableAdapter1;
         private BDAccionesDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
         private BDAccionesDataSet bdAccionesDataSet1;
+        private System.Windows.Forms.Button buttonSalir;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Compañia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dividendo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ganancia;
     }
 }

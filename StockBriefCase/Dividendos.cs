@@ -34,6 +34,11 @@ namespace StockBriefCase
 
         }
 
+        private void buttonSalir_Click(object sender, EventArgs e)//salir
+        {
+            this.Close();
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -42,13 +47,18 @@ namespace StockBriefCase
         private void buttonActualizar_Click(object sender, EventArgs e)
         {
             // scrapper
-
+            scrapper();
             for (int n = 0;n < nombres.Count;n++)
             {
                 
             }
 
             //if para que vea el mes y sume a mensual o no
+        }
+
+        public void scrapper()
+        {
+
         }
     }
 }
