@@ -21,9 +21,7 @@ namespace StockBriefCase
         Eliminar quitar = new Eliminar();
         Modificar modificar = new Modificar();
         decimal total = 0, Pbase = 0, ganancias = 0, nPorcentaje = 0, vPorcentaje = 0;
-        int contAccion = 0, contETF = 0, contOpcion = 0, contMetal = 0, contEnergias = 0, contMateriasP = 0, contCriptos = 0;
-        public List<string> nombre = new List<string>(); //para estadisticas
-        public List<int> cantidad = new List<int>();     //para estadisticas
+
         List<string> nyseNombres = new List<string>();//Nyse
         List<string> nyseNombresMalo = new List<string>();
         List<string> nysePrecio = new List<string>();
@@ -43,35 +41,6 @@ namespace StockBriefCase
         List<string> criptoPrecio = new List<string>();
         List<string> criptoPrecioMalo = new List<string>();
 
-        //contadores
-        public int Accion
-        {
-            get { return contAccion; }
-        }
-        public int Criptomonedas
-        {
-            get { return contCriptos; }
-        }
-        public int ETF
-        {
-            get { return contETF; }
-        }
-        public int Opciones
-        {
-            get { return contOpcion; }
-        }
-        public int Metales
-        {
-            get { return contMetal; }
-        }
-        public int Energias
-        {
-            get { return contEnergias; }
-        }
-        public int MPrimas
-        {
-            get { return contMateriasP; }
-        }
         //porcentaje viejo
         public decimal VPorcentaje
         {
@@ -240,53 +209,13 @@ namespace StockBriefCase
                     }
                 }
             }
+            this.accionesTableAdapter.Fill(this.bDAccionesDataSet.Acciones);
         }
 
         private void Portafolio_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'bDAccionesDataSet.Acciones' Puede moverla o quitarla según sea necesario.           
             this.accionesTableAdapter.Fill(this.bDAccionesDataSet.Acciones);
-
-            for (int n = 0; n < accionesDataGridView.Rows.Count; n++)
-            {
-                if (Convert.ToString(accionesDataGridView.Rows[n].Cells[6].Value) == "Acciones")
-                {
-                    contAccion++;
-                }
-                else if (Convert.ToString(accionesDataGridView.Rows[n].Cells[6].Value) == "ETF")
-                {
-                    contETF++;
-                }
-                else if (Convert.ToString(accionesDataGridView.Rows[n].Cells[6].Value) == "Opciones")
-                {
-                    contOpcion++;
-                }
-                else if (Convert.ToString(accionesDataGridView.Rows[n].Cells[6].Value) == "Metales")
-                {
-                    contMetal++;
-                }
-                else if (Convert.ToString(accionesDataGridView.Rows[n].Cells[6].Value) == "Energias")
-                {
-                    contEnergias++;
-                }
-                else if (Convert.ToString(accionesDataGridView.Rows[n].Cells[6].Value) == "Materias Primas")
-                {
-                    contMateriasP++;
-                }
-                else if (Convert.ToString(accionesDataGridView.Rows[n].Cells[6].Value) == "Criptomonedas")
-                {
-                    contCriptos++;
-                }
-            }
-            //ARREGLAR
-            for (int n = 0; n < accionesDataGridView.Rows.Count; n++)
-            {
-                if (accionesDataGridView.Rows[n].Cells[2].Value != null && accionesDataGridView.Rows[n].Cells[3].Value != null)
-                {
-                    nombre.Add(Convert.ToString(accionesDataGridView.Rows[n].Cells[2].Value));
-                    cantidad.Add(Convert.ToInt32(accionesDataGridView.Rows[n].Cells[3].Value));
-                }
-            }
             if (nyseNombres.Any() == false) //para agregar acciones con precio actual
             {
                 Scrapper();

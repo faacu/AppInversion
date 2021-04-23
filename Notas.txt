@@ -11,20 +11,14 @@ el total de tu cartera(crear una base de datos para guardar todas las acciones).
 - multicuentas
 
 Cambios:
-agregar sectores para los tipos de acciones asi se puede ver la diversificacion
 arreglar estetica de ventanas
 sacar espacios en blanco de datagridview
 cambiar los int por long si las cuentas con cantidades altas dan error
 debuguear estadisticas con los distintos tipos de acciones
-arreglar ventana de carga de portafolio, donde cuenta las acciones
+arreglar ventana de carga de estadisticas, donde cuenta las acciones
 columna en datagridview para ver el procentaje de subida o bajada de cada accion
-arreglar scrapper nyse y nasdaq 
-ver porque agrega lineas demas en wishlist //
-revisar serializacion portafolio //
-agregar opcion criptomonedas al combobox accion //
-redondear porcentaje en portafolio //
-arreglar datagrid wishlist//
-buscar cotizacion efs y materias primas //
+arreglar scrapper
+arreglar dividendo para que no haya que pasarle todos los nombres de las empresas y su cantidad(ya no se puede hacer)
 
 Datos:
 cantidad de acciones: 100 millones maximo

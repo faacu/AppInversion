@@ -42,6 +42,7 @@
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxBroker = new System.Windows.Forms.TextBox();
+            this.comboBoxTipoAccion = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,13 +157,13 @@
             "ETF",
             "Opciones",
             "Metales",
-            "Energias",
             "Materias Primas",
             "Criptomonedas"});
             this.comboBoxTipo.Location = new System.Drawing.Point(80, 87);
             this.comboBoxTipo.Name = "comboBoxTipo";
             this.comboBoxTipo.Size = new System.Drawing.Size(168, 21);
             this.comboBoxTipo.TabIndex = 13;
+            this.comboBoxTipo.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipo_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -181,11 +182,45 @@
             this.textBoxBroker.Size = new System.Drawing.Size(168, 20);
             this.textBoxBroker.TabIndex = 15;
             // 
+            // comboBoxTipoAccion
+            // 
+            this.comboBoxTipoAccion.FormattingEnabled = true;
+            this.comboBoxTipoAccion.Items.AddRange(new object[] {
+            "Aerolíneas",
+            "Agua",
+            "Alimentación",
+            "Automóviles",
+            "Autopistas e infraestructuras",
+            "Bancos comerciales",
+            "Bancos de inversión",
+            "Biotecnología",
+            "Construcción",
+            "Consumo",
+            "Distribución",
+            "Eléctricas",
+            "Farmacéuticas",
+            "Gasistas",
+            "Holdings",
+            "Industriales",
+            "Inmobiliarias",
+            "Medios de comunicación",
+            "Petroleras",
+            "Químicas",
+            "Seguros",
+            "Tecnologicas",
+            "Telecomunicaciones"});
+            this.comboBoxTipoAccion.Location = new System.Drawing.Point(254, 87);
+            this.comboBoxTipoAccion.Name = "comboBoxTipoAccion";
+            this.comboBoxTipoAccion.Size = new System.Drawing.Size(168, 21);
+            this.comboBoxTipoAccion.TabIndex = 16;
+            this.comboBoxTipoAccion.Visible = false;
+            // 
             // Accion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 251);
+            this.ClientSize = new System.Drawing.Size(427, 251);
+            this.Controls.Add(this.comboBoxTipoAccion);
             this.Controls.Add(this.textBoxBroker);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBoxTipo);
@@ -225,5 +260,6 @@
         public System.Windows.Forms.ComboBox comboBoxTipo;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox textBoxBroker;
+        public System.Windows.Forms.ComboBox comboBoxTipoAccion;
     }
 }

@@ -58,15 +58,6 @@ namespace StockBriefCase
         private void buttonEstadistica_Click(object sender, EventArgs e)
         {
             Estadisticas estadisticas = new Estadisticas();
-            estadisticas.Accion = portafolio.Accion;
-            estadisticas.ETF = portafolio.ETF;
-            estadisticas.Opciones = portafolio.Opciones;
-            estadisticas.Metales = portafolio.Metales;
-            estadisticas.Energias = portafolio.Energias;
-            estadisticas.Mprimas = portafolio.MPrimas;
-            estadisticas.Criptos = portafolio.Criptomonedas;
-            estadisticas.Nombres = portafolio.nombre;
-            estadisticas.Cantidad = portafolio.cantidad;
             estadisticas.Show();
         }
 
@@ -135,8 +126,6 @@ namespace StockBriefCase
         private void button1_Click(object sender, EventArgs e)
         {
             Dividendos dividendos = new Dividendos();
-            dividendos.Nombres = portafolio.nombre;
-            dividendos.Cantidad = portafolio.cantidad;
             dividendos.Show();
         }
     }

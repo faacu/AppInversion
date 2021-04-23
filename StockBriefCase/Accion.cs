@@ -26,5 +26,20 @@ namespace StockBriefCase
         {
 
         }
+
+        private void comboBoxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxTipo.SelectedItem.ToString() == "Acciones")
+            {
+                comboBoxTipoAccion.Visible = true;
+                comboBoxTipoAccion.Enabled = true;
+            }
+            else if (comboBoxTipo.SelectedItem.ToString() != "Acciones")
+            {
+                comboBoxTipoAccion.Visible = false;
+                comboBoxTipoAccion.Enabled = false;
+                comboBoxTipoAccion.Text = "";
+            }
+        }
     }
 }
